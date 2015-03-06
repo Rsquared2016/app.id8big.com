@@ -1,0 +1,20 @@
+## ChangeLog by Keetup:
+- V: X [#XXX]- YYYY-MM-DD ( Day Month dayNumeric yearNumericYYYY ):
+	
+
+- V: 1.2 [#170]- 2012-10-11 ( Mon Oct 10 2012 ):
+    -- Add full keetup categories support, TODO: FILTER OUTPUT AND FILTER HANDLER FOR THIS.
+    -- Fix of operand LIKE in KtJobBaseHandler while filtering a metadata.
+    -- Add Company, Lenght, Timeline, Tags, and Categories filters.
+    -- Se dio mejor soporte de lenguajes a los breadcrumbs y mejor navegabilidad.
+    -- Se dio soporte para los outputs de checkbox y radios en ktform.
+    -- Se agrego el tab de los jobs post de los ultimos 30 dias.
+    -- Se agrego este tab por defecto, para mostrar los ultimos Jobs Post.
+    -- Se agrego la opcion de length en el formulario de jobs.
+
+
+- V: 1.1 [#159]- 2012-10-08 ( Mon Oct 08 2012 ):
+    -- Filtros por categoria.
+    -- Posibilidad de adjuntar doc, docx.
+    -- Ubicación no sea obligaroria si la opción Freelance.
+    -- Se agrego estilo CSS, para dar soporte al nuevo KtFormBundle

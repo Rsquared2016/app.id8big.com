@@ -1,0 +1,5 @@
+## ChangeLog by Keetup:
+
+- V: 0.2 - 2012-10-05 ( Fri Oct 05 2012 ):
+
+-- Add walledgarden support for endpoints, cached JS caused a bug while asking logged in user inside the file.

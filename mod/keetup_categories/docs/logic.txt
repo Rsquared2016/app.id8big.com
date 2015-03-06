@@ -1,0 +1,31 @@
+Modulo Keetup Categories:
+
+Url, Administración: http://keetup.mine.nu/barchaeology/categories/admin/
+
+
+Este modulo añade categorias y subcategorias al sitio, se puede mostrar distintas categorias dependiendo del "contexto" o modulo.
+
+Aparece el contexto general, que se utilizara como categoria por defecto para todo el sitio, si se carga una categoria para un contexto especifico entonces muestra las categorias asociadas a ese contexto.
+
+Version 1.1:
+
+Secciones:
+	Listing Categories & Sub-Categories:
+		Se muestra un filtro por sección de categorias, junto a las categorias filtradas.
+
+	Add Categories & Sub-Categories:
+
+		Campos: 
+			Category
+			Context ( el modulo donde debera aparecer )
+			Sub Categories
+
+		Para poder cargar una categoria y con sus sub categorias, primero debemos escribir el nombre de la misma, luego seleccionar un contexto y por ultimo debemos escribir la subcategoria que querramos, luego de escribir la subcategoria, apretamos el boton de add
+		y se agregara la subcategoria en la seccion de abajo del formulario, se limpia el campo de texto de subcategoria para darte la posibilidad de adjuntar mas subcategorias a esa categoria.
+	
+
+	Preview:
+		Muestra un preview de como quedan los campos.
+
+
+

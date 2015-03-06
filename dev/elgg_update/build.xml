@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="build" description="Update an elgg version" default="main" >
+	<property file="./build.properties" />
+	
+	<!--Subs target-->
+	
+	<target name="branch_project" description="Branch the current project">
+		<echo msg="Branching your current version ..." />
+		<svncopy
+		   svnpath="/usr/bin/svn"
+		   username="${svn.user}"
+		   password="${svn.pass}"
+		   force="false"
+		   nocache="true"
+		   repositoryurl="${svn.repository_url}/${svn.repository_proj_type}/${svn.repository_proj_name}/${svn.repository_trunk}/"
+		   todir="${svn.repository_url}/${svn.repository_proj_type}/${svn.repository_proj_name}/${svn.repository_branch}/${svn.repository_proj_name}${svn.branch_version}"
+		   message="${svn.branch_message} ${svn.branch_version}"
+		 />
+	</target>
+	
+	<target name="remove_temp_folder">
+		<delete dir="${general.elgg_tmp_folder}" includeemptydirs="true" verbose="true" failonerror="true" />
+	</target>
+
+	<target name="decompress_elgg_version" description="Decompress the elgg version">
+		<if>
+			<equals arg1="${general.elgg_version_file_ext}" arg2="zip" />
+ 			<then>
+				<!-- Zip file -->
+				<exec command="unzip ${general.elgg_version_folder}${general.elgg_version_file_name}.${general.elgg_version_file_ext} -d ${general.elgg_tmp_folder}" />
+			</then>
+			
+			<elseif>
+				<equals arg1="${general.elgg_version_file_ext}" arg2="tar.gz" />
+				<then>
+					<!-- Tar gz file -->
+					<exec command="tar -zxvf ${general.elgg_version_folder}${general.elgg_version_file_name}.${general.elgg_version_file_ext} -C ${general.elgg_tmp_folder}" />
+				</then>
+			 </elseif>
+		</if>
+	</target>
+
+	<target name="check_before_update" description="This check if remove the mod folder or not">
+		<if>
+			<isfalse value="${general.elgg_mod_include}"/>
+			<then>
+			   <delete dir="${general.elgg_tmp_folder}${general.elgg_version_file_name}/mod" includeemptydirs="true" verbose="true" failonerror="true" />
+			   <echo message="The mod folder was removed sucessfully" />
+			 </then>
+		</if>
+	</target>
+
+
+	<target name="email">
+    	<mail recipient="${mail.recipient}" subject="Project ${project.folder_name} ready to download">
+    		The ${project.folder_name} project is ready to download.
+    		Link: ${general.server_url}${project.folder_name}/releases/${project.folder_name}_${start.DSTAMP}.zip
+    	</mail>
+  	</target>	
+
+	<!--Main target-->
+
+	<target name="prepare_statement" depends="branch_project">
+		<echo msg="Preparing enviroment ..." />
+		<phingcall target="remove_temp_folder"/>
+		
+		<!-- Create temporary folder -->
+		<mkdir dir="${general.elgg_tmp_folder}" />
+	</target>
+
+	<target name="update_project" depends="decompress_elgg_version, check_before_update">
+		<echo msg="Updating the project..." />
+		<!-- Copy the new elgg version -->
+		<exec command="cp -R ${general.elgg_tmp_folder}${general.elgg_version_file_name}/* ${update.project_base_dir}" />
+		
+		<!-- Copy the new .htaccess -->
+		<copy file="${general.elgg_tmp_folder}${general.elgg_version_file_name}/htaccess_dist" tofile="${update.project_base_dir}.htaccess" overwrite="true"/>
+	</target>
+	
+	<target name="finish_statement">
+		<echo msg="Cleaning enviroment..." />
+		<phingcall target="remove_temp_folder"/>
+	</target>
+		
+	<target name="main" description="Main Target" depends="prepare_statement, update_project, finish_statement">
+		<echo msg="Enjoy your updated project ;)" />
+	</target>
+	
+
+</project>

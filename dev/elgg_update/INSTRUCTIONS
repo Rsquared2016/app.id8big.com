@@ -1,0 +1,50 @@
+Reporte de diferencias antes de actualizar
+===========================================
+Ejemplo si se quiere actualizar a la versión elgg 1.7.4
+
+
+	Debemos tener la version a comparar descomprimida o exportar de code.elgg.org la version a comparar:
+
+	Versiones de elgg (Hay que ver, que version vamos a comparar):
+		svn ls http://code.elgg.org/elgg/tags/
+	
+	Exportar la version de elgg (Dependiendo de la version):
+		svn export http://code.elgg.org/elgg/tags/1.7 /Users/dgallardo/Sites/medikly/dev/elgg_update/1.7
+	
+	Si no esta como ejecutable, marcarlo:
+		chmod +x /Users/dgallardo/Sites/medikly/dev/elgg_update/diff_report.sh
+	
+	Generar el reporte:
+		/Users/dgallardo/Sites/medikly/dev/elgg_update/./diff_report.sh /Users/dgallardo/Sites/medikly/dev/elgg_update/1.7 /Users/dgallardo/Sites/medikly
+
+	Ver el reporte en:
+		/Users/dgallardo/Sites/medikly/dev/elgg_update/diff_report.txt
+		
+	Eliminar la version de elgg descargada:
+		rm -Rf /Users/dgallardo/Sites/medikly/dev/elgg_update/1.7
+
+Actualizacion con phing
+========================
+	IMPORTANTE: Para el correcto funcionamiento. Se debe crear la carpeta elgg_update en [proyect]/dev/elgg_update
+	
+	* Descargar o copiar la nueva version de elgg dentro de la carpeta elgg_update.
+		svn export http://code.elgg.org/elgg/tags/1.7.4 /Users/dgallardo/Sites/medikly/dev/elgg_update/1.7.4
+		
+	* Comprimirla si no se bajo el ZIP
+		zip -r /Users/dgallardo/Sites/medikly/dev/elgg_update/1.7.4.zip /Users/dgallardo/Sites/medikly/dev/elgg_update/1.7.4/*
+	
+	* Abrir el archivo build.properties y cambias los valores alli.
+
+	* Abrir la consola y posicionarse en la carpeta elgg_update y ejecutar:
+		NOTA: El usuario de svn en necesario para hacer el branch de la version actual.
+		 
+		phing -f build.xml -Dsvn.user=yoursvnuser -Dsvn.pass=yourpassword
+		
+		phing -f build.xml -Dsvn.user=diego -Dsvn.pass=qwepoi689
+		
+	* Hacer un upgrade de tu base de dato y exportarla en el dev
+		/Applications/MAMP/bin/apache2/bin/mysqldump -u elgguser -pelgguser medikly_17 > /Users/dgallardo/Sites/medikly/dev/db/medikly.sql
+
+	* Comprimir elggdata y agregarlo. 
+
+Diego

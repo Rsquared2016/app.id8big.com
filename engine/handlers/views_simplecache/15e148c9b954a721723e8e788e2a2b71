@@ -1,0 +1,119 @@
+
+elgg.provide('elgg.sparkfire');
+elgg.provide('elgg.sparkfire.profile');
+elgg.provide('elgg.sparkfire.profile.ui');
+elgg.provide('elgg.sparkfire.profile.callback');
+elgg.provide('elgg.sparkfire.agenda');
+/**
+ * Theme Js initialization
+ */
+elgg.sparkfire.init = function() {
+	elgg.sparkfire.profile.inlineEdit();
+	elgg.sparkfire.agenda.init();
+}
+
+elgg.sparkfire.agenda.init = function() {
+	$(function() {
+		$('#agenda-widget-box a[role=menuitem]').live('click', function() {
+			var search_for = $(this).data('search');
+			
+			var data = {
+				filter_date : search_for 
+			};
+			var wrapper = $(this).parents('#agenda-widget-box');
+			
+			elgg.ajax('ajax/view/agenda/widget', {
+				data: data,
+				success: function(data) {
+					wrapper.replaceWith(data);
+				}
+			});
+			return false;
+		})
+	})
+	
+}
+elgg.sparkfire.profile.inlineEdit = function() {
+	elgg.sparkfire.profile.ui.loader_url = elgg.get_site_url() + "mod/cycles/graphics/indicator.gif";
+	elgg.sparkfire.profile.ui.options = {
+	    indicator: "<img src='" + elgg.sparkfire.profile.ui.loader_url + "'>",
+	    type: "autogrow",
+	    submit: 'Save',
+	    cancel: 'Cancel',
+	    tooltip: "Click to edit",
+	    placeholder: "Click to edit",
+	    onblur: "cancel",
+//	    onblur: "ignore",
+	    select: true,
+	    cssclass: "editable",
+	    autogrow: {
+		lineHeight: 28,
+		minHeight: 38
+	    }};
+	
+	
+	//Check if we have the library loaded.
+	if (typeof($.editable) != 'undefined') {
+	    //Add editable inline content here!
+		//Jeditable with livequery.
+	    /*$("[data-rel=inline_edit]", '.user-profile-inline-fields').livequery(function() {
+		$(this).editable(function(value, settings) {*/
+	    //});
+		
+		$("[data-rel=inline_edit]", '.user-profile-inline-fields').editable(function(value, settings) {
+		    return elgg.sparkfire.profile.callback.edit(value, settings, this);
+		}, elgg.sparkfire.profile.ui.options);
+
+	    $('a.editInline', '.user-profile-inline-fields').live('click', function() {
+			$(this).parents('.itemInlineWrapper').find('.inlineEdit').trigger('click');
+	    });
+
+	    $('.user-profile-inline-fields form.editable textarea').live('keypress', function(e) {
+		if (e.which == 13) {
+		    $('button:first', $(this).parent()).click();
+		    //$('.cyclesActionsDesc').css('margin-top', '0');
+		    e.preventDefault();
+		    return false;
+		}
+	    });
+
+	}	
+}
+
+elgg.sparkfire.profile.callback.edit = function(value, settings, ele, callback) {
+	var input_name = $(ele).attr('data-name');
+	if (!input_name) {
+	    input_name = $(ele).attr('name');
+	}
+
+	/**
+	* KTODO: Se debe retornar el valor previo.
+	* 1- Revisar si el plugin tiene este comportamiento.
+	* 2- Guardar en el elemento un atributo data-prev, que tenga el valor previo ?
+	*/
+	//Add ajax loader.
+	data = {
+		field_name: input_name
+	};
+	data[input_name] = value;
+	elgg.action('profile/inline_edit', {
+	    data: data,
+	    success: function(json) {
+			//Do something
+			if (json.status != 0 && json.output) {
+				//restore value.
+				$(ele).html(json.output);
+			}
+	    },
+	    complete: function() {
+		if (typeof(callback) == 'function') {
+		    callback(value, settings, ele);
+		}
+		//Remove ajax loader
+	    }
+	});
+
+	return(value); //Return value ?
+}
+
+elgg.register_hook_handler('init', 'system', elgg.sparkfire.init);

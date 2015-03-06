@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : allowed_contexts.xml
+    Created on : 29 de junio de 2011, 10:06
+    Author     : Bortoli German for Keetup Development
+    Description:
+       This XML is a configuration of the contexts. Using this may allow to use different categories by contexts.
+	   For example, we could have one type of category for blogs, and another categories for bookmarks, if none is setted, then will use the default category.
+	   
+	   After add the key, remeber to add the language translation, it autogenerates with this lang key by example
+		 keetup_categories:category_group:{REPLACE_THIS_WITH_THE_CONTEXT}
+-->
+
+<contexts>
+	<!-- DUMMIES DELETE THIS AFTER -->
+<!--	
+	<allow>kt_forum_dummy</allow>
+-->
+	<!-- END OF DUMMIES CONTEXTS -->
+</contexts>

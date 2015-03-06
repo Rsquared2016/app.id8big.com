@@ -1,0 +1,57 @@
+Modulo de Registracion por pasos
+
+Este modulo sirve para poder registrarse usando la registracion paso a paso.
+
+Url: http://opinioneshoy.dev.gfddgroup.com/yell/login-register
+
+Version 0.1
+
+El  usuario ingresa a la url y completa los campos del registro.
+
+	Nombre de visualizacion
+	Correo electronico
+	Usuario 
+	Contraseña
+	Password
+	Repetir Password
+	Codigo de seguridad
+
+Todos los campos son obligatorios.
+
+Una vez registrado, el usuario recibe un correo de validacion, lo confirma y puede ingresar a la red usando sus datos previos ingresando la pagina de login register.
+
+Cuando ingresa por primera vez, el usuario deberá completar los 2 pasos de registro.
+
+Paso 1:
+	Debera completar los sgtes campos.
+		Nombre *
+		Apellido *
+		Sexo *
+		Ciudad *
+		Provincia *
+		Fecha de Nacimiento *
+		Tipo y n de documento
+		Telefono
+		Es anunciante de pagina ( checkbox )
+		Cuit * ( Solo si se marca la opcion, es anunciante de pagina )
+		Preferencias ( se deben marcar las preferencias )
+			. Hoteles
+			. Turismo
+			. Empresas
+			. Descuentos
+
+	Los campos marcados con * son obligatorios.
+
+	
+Paso 2:
+
+	El paso 2 es para poder subir la foto del perfil, se debe seleccionar una foto, si todo sale bien, entonces este lo manda al dashboard.
+
+	Este paso es obligatorio.
+
+Luego de completar los pasos, podremos ir al perfil y fijarnos de que esten bien los campos guardados.
+
+En la edicion del perfil podremos editar los campos del paso 1 y 2.
+
+
+	

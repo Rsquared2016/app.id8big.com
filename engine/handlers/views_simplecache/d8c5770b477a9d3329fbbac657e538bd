@@ -1,0 +1,2543 @@
+
+/* ***************************************
+	RESET CSS
+*************************************** */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+html, body {
+	height: 100%;
+	margin-bottom: 1px;
+}
+img {
+	border-width: 0;
+	border-color: transparent;
+}
+ol, ul {
+	list-style: none;
+}
+em, i {
+	font-style: italic;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration:line-through;
+}
+strong, b {
+	font-weight: bold;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: top;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/* ***************************************
+	BASICS
+*************************************** */
+body {
+	background-color: #eee;
+	font-size: 80%;
+	line-height: 1.4em;
+	font-family: "Lucida Grande",Arial,Tahoma,Verdana,sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	line-height: auto;
+	color: #666;
+}
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.5em; line-height: 1.1em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.0em; }
+h5 { font-size: 0.9em; }
+h6 { font-size: 0.8em; }
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
+pre, code {
+	background-color: #EEE;
+	border: 1px solid #DDD;
+	color: #444;
+	font-family: Monaco, "Courier New", Courier, monospace;
+	font-size: 13px;
+	overflow: auto;
+	margin: 15px 0;
+	padding: 5px;
+}
+blockquote {
+	background: #EBF5FF;
+}
+p {
+	margin-bottom: 15px;
+}
+
+.clearfloat {
+	clear: both;
+}
+
+/* Clearfix! */
+.clearfix:after,
+.elgg-grid:after,
+.elgg-layout:after,
+.elgg-inner:after,
+.elgg-page-header:after,
+.elgg-page-footer:after,
+.elgg-head:after,
+.elgg-foot:after,
+.elgg-col:after,
+.elgg-image-block:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.elgg-body {
+	width: auto;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+.elgg-body:after {
+	display: block;
+	visibility: hidden;
+	height: 0 !important;
+	line-height: 0;
+	overflow: hidden;
+	font-size: xx-large;
+	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
+/* ***************************************
+	PAGE WRAPPER
+*************************************** */
+.elgg-page > .elgg-inner {
+	margin: 0 auto;
+	padding: 20px 40px 0;
+	min-width: 800px;
+	max-width: 1600px;
+}
+
+/* ***************************************
+	HEADER
+*************************************** */
+.elgg-page-header {
+	background-color: #111;
+	border: 1px solid #999;
+	padding: 20px 20px;
+}
+.elgg-heading-site {
+	font-size: 1.8em;
+	float: left;
+}
+.elgg-heading-site a {
+	color: #ffffff;
+	text-decoration: none;
+}
+.elgg-heading-site a:hover {
+	color: white;
+	text-decoration: none;
+}
+.elgg-menu-user {
+	float: right;
+	margin-top: 5px;
+}
+.elgg-menu-user, .elgg-menu-user a {
+	color: #999999;
+}
+.elgg-menu-user a {
+	text-decoration: underline;
+}
+.elgg-menu-user a:hover {
+	color: white;
+}
+.elgg-menu-user li {
+	display: inline;
+}
+.elgg-menu-user li:after {
+	content: "|";
+	display: inline-block;
+	font-weight: normal;
+	margin-left: 8px;
+	margin-right: 4px;
+}
+.elgg-menu-user li:last-child:after {
+	content: "";
+}
+
+/* ***************************************
+	MESSAGES
+*************************************** */
+.elgg-page-messages {
+	padding: 20px 0 0;
+	width: 500px;
+	margin-bottom: -10px;
+}
+.elgg-system-messages p {
+	margin: 0;
+}
+.elgg-message {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 2px solid #ddd;
+	cursor: pointer;
+}
+.elgg-message.elgg-state-error {
+	background: #fbe3e4;
+	color: #8a1f11;
+	border-color: #fbc2c4;
+	font-weight: bold;
+}
+.elgg-message.elgg-state-success {
+	background: #e6efc2;
+	color: #264409;
+	border-color: #c6d880;
+}
+
+.elgg-admin-notices {
+	padding-bottom: 15px;
+}
+.elgg-admin-notices p {
+	background-color: #BDE5F8;
+	color: black;
+	border: 1px solid blue;
+	font-weight: bold;
+	padding: 3px 0px 3px 10px;
+
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.elgg-admin-notices a.elgg-admin-notice {
+	float: right;
+	text-decoration: none;
+}
+
+.elgg-admin-notices a {
+	text-decoration: underline;
+}
+
+/* ***************************************
+	BODY
+*************************************** */
+.elgg-page-body {
+	padding: 20px 0;
+}
+.elgg-main {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 20px;
+	position: relative;
+	min-height: 400px;
+}
+.elgg-sidebar {
+	width: 210px;
+	float: right;
+	margin-left: 30px;
+}
+.elgg-main > .elgg-head {
+	margin-bottom: 10px;
+}
+.elgg-main h2 {
+	color: #333333;
+}
+
+/* ***************************************
+	FOOTER
+*************************************** */
+.elgg-page-footer {
+	background-color: #111;
+	border: 1px solid #999;
+	padding: 10px 20px;
+	margin-bottom: 10px;
+}
+.elgg-page-footer a {
+	color: #ddd;
+	font-weight: bold;
+	text-decoration: none;
+}
+.elgg-page-footer a:hover {
+	text-decoration: underline;
+}
+
+/* ***************************************
+	MODULES
+*************************************** */
+.elgg-module {
+	overflow: hidden;
+}
+.elgg-module-main {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+.elgg-module-main > .elgg-head {
+	margin-bottom: 5px;
+}
+.elgg-module-info > .elgg-head {
+	margin-bottom: 10px;
+}
+.elgg-module-inline {
+	margin: 20px 0;
+}
+.elgg-module-inline > .elgg-head {
+	background-color: #999;
+	color: white;
+	padding: 5px;
+	margin-bottom: 10px;
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.elgg-module-inline > .elgg-head h3 {
+	color: white;
+}
+
+/* ***************************************
+	TABLE
+*************************************** */
+.elgg-table {
+	width: 100%;
+	border-top: 1px solid #ccc;
+}
+.elgg-table td, .elgg-table th {
+	background: white;
+	border: 1px solid #ccc;
+	padding: 4px 8px;
+	vertical-align: middle;
+}
+.elgg-table th {
+	background-color: #ddd;
+}
+.elgg-table .alt td {
+	background: #eee;
+}
+.elgg-table input[type=checkbox] {
+	margin-top: 3px;
+}
+
+.elgg-table-alt {
+	width: 100%;
+	border-top: 1px solid #ccc;
+}
+.elgg-table-alt th {
+	background-color: #eee;
+	font-weight: bold;
+}
+.elgg-table-alt td, th {
+	padding: 2px 4px;
+	border-bottom: 1px solid #ccc;
+}
+.elgg-table-alt td:first-child {
+	width: 200px;
+}
+.elgg-table-alt tr:hover {
+	background: #E4E4E4;
+}
+
+/* ***************************************
+	LISTS AND IMAGE BLOCK
+*************************************** */
+.elgg-image-block {
+	padding: 3px 0;
+}
+.elgg-image-block .elgg-image {
+	float: left;
+	margin-right: 5px;
+}
+.elgg-image-block .elgg-image-alt {
+	float: right;
+	margin-left: 5px;
+}
+.elgg-item {
+	margin: 3px;
+}
+.elgg-list-simple li {
+	margin-bottom: 5px;
+}
+.elgg-list-distinct {
+	border-top: 1px dotted #CCCCCC;
+	margin: 5px 0;
+	clear: both;
+}
+.elgg-list-distinct > li {
+	border-bottom: 1px dotted #CCCCCC;
+}
+
+/* ***************************************
+	FORMS AND INPUT
+*************************************** */
+label {
+	font-weight: bold;
+	color: #333333;
+	font-size: 110%;
+}
+fieldset > div {
+	margin-bottom: 15px;
+}
+fieldset > div:last-child {
+	margin-bottom: 0;
+}
+input {
+	font: 120% Arial, Helvetica, sans-serif;
+	padding: 5px;
+	border: 1px solid #ccc;
+	color: #666;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 0;
+}
+
+/* default elgg core input field classes */
+.elgg-input-text,
+.elgg-input-tags,
+.elgg-input-url,
+.elgg-input-plaintext {
+	width: 98%;
+}
+textarea {
+	height: 100px;
+}
+.elgg-input-thin {
+	width: 400px;
+}
+.elgg-input-natural {
+	width: auto;
+}
+
+.elgg-button {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	width: auto;
+	padding: 2px 4px;
+	cursor: pointer;
+}
+a.elgg-button {
+	padding: 3px 6px;
+}
+
+.elgg-button + .elgg-button {
+	margin-left: 5px;
+}
+
+.elgg-button-submit,
+.elgg-button-action {
+	color: white;
+	border: 1px solid #333;
+	background-color: #333;
+	text-shadow: 1px 1px 0px black;
+}
+.elgg-button-submit:hover,
+.elgg-button-action:hover {
+	color: white;
+	background-color: #000;
+	text-decoration: none;
+}
+.elgg-button-submit.elgg-state-disabled,
+.elgg-button-action.elgg-state-disabled {
+	color: #999;
+	cursor: default;
+}
+
+.elgg-button-cancel {
+	color: #333;
+	background-color: #999;
+	border: 1px solid #999;
+}
+.elgg-button-cancel:hover {
+	color: #222;
+	background-color: #666;
+	text-decoration: none;
+}
+
+.elgg-form-useradd input[type=text],
+.elgg-form-useradd input[type=password] {
+	width: 300px;
+}
+
+.elgg-form-settings {
+	max-width: 800px;
+}
+
+/* **************************************
+     DATE PICKER
+*************************************** */
+.ui-datepicker {
+	margin-top: 3px;
+	padding: 3px 3px 0;
+	border: 1px solid #ccc;
+	background-color: white;
+}
+.ui-datepicker-header {
+	padding: 2px 0;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+	position: absolute;
+	top: 9px;
+	cursor: pointer;
+}
+.ui-datepicker-prev {
+	left: 6px;
+}
+.ui-datepicker-next {
+	right: 6px;
+}
+.ui-datepicker-title {
+	line-height: 1.8em;
+	margin: 0 30px;
+	text-align: center;
+	font-weight: bold;
+}
+.ui-datepicker-calendar {
+	margin-bottom: 2px;
+}
+.ui-datepicker th {
+	border: none;
+	font-weight: bold;
+	padding: 5px 6px;
+	text-align: center;
+}
+.ui-datepicker td {
+	padding: 1px;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+	display: block;
+	padding: 2px;
+	line-height: 1.2em;
+	text-align: right;
+	text-decoration: none;
+}
+.ui-datepicker-calendar .ui-state-default {
+	border: 1px solid #ccc;
+	color: #555;
+	background: #fafafa;
+}
+.ui-datepicker-calendar .ui-state-hover {
+	border: 1px solid #aaa;
+	color: #333;
+	background: #ccc;
+}
+.ui-datepicker-calendar .ui-state-active,
+.ui-datepicker-calendar .ui-state-active.ui-state-hover {
+	font-weight: bold;
+	border: 1px solid #999;
+	color: #333;
+	background: #ddd;
+}
+
+/* ***************************************
+	AUTOCOMPLETE
+*************************************** */
+.ui-autocomplete {
+	position: absolute;
+	cursor: default;
+}
+.elgg-autocomplete-item .elgg-body {
+	max-width: 600px;
+}
+.ui-autocomplete {
+	background-color: white;
+	border: 1px solid #ccc;
+	overflow: hidden;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.ui-autocomplete .ui-menu-item {
+	padding: 0px 4px;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.ui-autocomplete .ui-menu-item:hover {
+	background-color: #eee;
+}
+.ui-autocomplete a:hover {
+	text-decoration: none;
+	color: #4690D6;
+}
+
+/* ***************************************
+	USER PICKER
+*************************************** */
+.elgg-user-picker-list li:first-child {
+	border-top: 1px dotted #ccc;
+	margin-top: 5px;
+}
+.elgg-user-picker-list > li {
+	border-bottom: 1px dotted #ccc;
+}
+
+/* ***************************************
+	FRIENDS PICKER
+*************************************** */
+.friends-picker-main-wrapper {
+	margin-bottom: 15px;
+}
+.friends-picker-container h3 {
+	font-size:4em !important;
+	text-align: left;
+	margin:10px 0 20px !important;
+	color:#999 !important;
+	background: none !important;
+	padding:0 !important;
+}
+.friends-picker .friends-picker-container .panel ul {
+	text-align: left;
+	margin: 0;
+	padding:0;
+}
+.friends-picker-wrapper {
+	margin: 0;
+	padding:0;
+	position: relative;
+	width: 730px;
+}
+.friends-picker {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding:0;
+	width: 730px;
+	height: auto;
+	background-color: #dedede;
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.friendspicker-savebuttons {
+	background: white;
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+
+	margin:0 10px 10px;
+}
+.friends-picker .friends-picker-container { /* long container used to house end-to-end panels. Width is calculated in JS  */
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+	list-style-type: none;
+}
+.friends-picker .friends-picker-container .panel {
+	float:left;
+	height: 100%;
+	position: relative;
+	width: 730px;
+	margin: 0;
+	padding:0;
+}
+.friends-picker .friends-picker-container .panel .wrapper {
+	margin: 0;
+	padding:4px 10px 10px 10px;
+	min-height: 230px;
+}
+.friends-picker-navigation {
+	margin: 0 0 10px;
+	padding:0 0 10px;
+	border-bottom:1px solid #ccc;
+}
+.friends-picker-navigation ul {
+	list-style: none;
+	padding-left: 0;
+}
+.friends-picker-navigation ul li {
+	float: left;
+	margin:0;
+	background:white;
+}
+.friends-picker-navigation a {
+	font-weight: bold;
+	text-align: center;
+	background: white;
+	color: #999;
+	text-decoration: none;
+	display: block;
+	padding: 0;
+	width:20px;
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.tabHasContent {
+	background: white;
+	color:#333 !important;
+}
+.friends-picker-navigation li a:hover {
+	background: #333;
+	color:white !important;
+}
+.friends-picker-navigation li a.current {
+	background: #4690D6;
+	color:white !important;
+}
+.friends-picker-navigation-l, .friends-picker-navigation-r {
+	position: absolute;
+	top: 46px;
+	text-indent: -9000em;
+}
+.friends-picker-navigation-l a, .friends-picker-navigation-r a {
+	display: block;
+	height: 40px;
+	width: 40px;
+}
+.friends-picker-navigation-l {
+	right: 48px;
+	z-index:1;
+}
+.friends-picker-navigation-r {
+	right: 0;
+	z-index:1;
+}
+.friends-picker-navigation-l {
+	background: url("http://23.253.234.232/_graphics/friendspicker.png") no-repeat left top;
+}
+.friends-picker-navigation-r {
+	background: url("http://23.253.234.232/_graphics/friendspicker.png") no-repeat -60px top;
+}
+.friends-picker-navigation-l:hover {
+	background: url("http://23.253.234.232/_graphics/friendspicker.png") no-repeat left -44px;
+}
+.friends-picker-navigation-r:hover {
+	background: url("http://23.253.234.232/_graphics/friendspicker.png") no-repeat -60px -44px;
+}
+.friendspicker-savebuttons .elgg-button-submit,
+.friendspicker-savebuttons .elgg-button-cancel {
+	margin:5px 20px 5px 5px;
+}
+.friendspicker-members-table {
+	background: #dedede;
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+
+	margin:10px 0 0;
+	padding:10px 10px 0;
+}
+
+/* ***************************************
+	PAGINATION
+*************************************** */
+.elgg-pagination {
+	margin: 10px 0;
+	display: block;
+	text-align: center;
+}
+.elgg-pagination li {
+	display: inline;
+	margin: 0 6px 0 0;
+	text-align: center;
+}
+.elgg-pagination a, .elgg-pagination span {
+	padding: 2px 6px;
+	color: #333;
+	border: 1px solid #333;
+	font-size: 12px;
+	text-decoration: none;
+}
+.elgg-pagination a:hover {
+	background: #333;
+	color: white;
+	text-decoration: none;
+}
+.elgg-pagination .elgg-state-disabled span {
+	color: #CCC;
+	border-color: #CCC;
+}
+.elgg-pagination .elgg-state-selected span {
+	color: #000;
+	border-color: #ccc;
+}
+
+/* ***************************************
+	TABS
+*************************************** */
+.elgg-tabs {
+	margin-bottom: 5px;
+	border-bottom: 1px solid #ccc;
+	display: table;
+	width: 100%;
+}
+.elgg-tabs li {
+	float: left;
+	border: 1px solid #ccc;
+	border-bottom-width: 0;
+	background: #eee;
+	margin: 0 0 0 10px;
+}
+.elgg-tabs a {
+	text-decoration: none;
+	display: block;
+	padding: 3px 10px 0 10px;
+	text-align: center;
+	height: 21px;
+	color: #999;
+}
+.elgg-tabs a:hover {
+	background: #dedede;
+	color:#333;
+}
+.elgg-tabs .elgg-state-selected {
+	border-color: #ccc;
+	background: white;
+}
+.elgg-tabs .elgg-state-selected a {
+	position: relative;
+	top: 2px;
+	background: white;
+}
+
+/* ***************************************
+	SIDEBAR MENU
+*************************************** */
+.elgg-admin-sidebar-menu a {
+	border: 1px solid red;
+	display: block;
+	padding: 5px;
+	color: #333;
+	cursor: pointer;
+	text-decoration: none;
+	margin-bottom: 2px;
+	border: 1px solid #CCC;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.elgg-admin-sidebar-menu a:hover {
+	text-decoration: none;
+	background: black;
+	color: white;
+	border: 1px solid black;
+}
+.elgg-admin-sidebar-menu li.elgg-state-selected > a {
+	background-color: #BBB;
+}
+.elgg-admin-sidebar-menu .elgg-menu-closed:before {
+	content: "\25B8";
+	padding-right: 4px;
+}
+.elgg-admin-sidebar-menu .elgg-menu-opened:before {
+	content: "\25BE";
+	padding-right: 4px;
+}
+.elgg-admin-sidebar-menu .elgg-child-menu {
+	display: none;
+	padding-left: 30px;
+}
+.elgg-admin-sidebar-menu li.elgg-state-selected > ul {
+	display: block;
+}
+.elgg-admin-sidebar-menu h2 {
+	padding-bottom: 5px;
+}
+.elgg-admin-sidebar-menu ul.elgg-menu-page {
+	padding-bottom: 15px;
+}
+
+/* ***************************************
+	TITLE MENU
+*************************************** */
+.elgg-menu-title {
+	float: right;
+}
+.elgg-menu-title > li {
+	display: inline-block;
+	margin-left: 4px;
+}
+
+/* ***************************************
+	FOOTER MENU
+*************************************** */
+.elgg-menu-footer {
+	color: gray;
+}
+.elgg-menu-footer li {
+	float: left;
+}
+.elgg-menu-footer li:after {
+	content: "\007C";
+	display: inline-block;
+	padding: 0 4px 0 4px;
+	font-weight: normal;
+}
+.elgg-menu-footer li:last-child:after {
+	content: "";
+}
+
+/* ***************************************
+	GENERAL MENU
+*************************************** */
+.elgg-menu-general > li,
+.elgg-menu-general > li > a {
+	display: inline-block;
+	color: #999;
+}
+
+.elgg-menu-general > li:after {
+	content: "\007C";
+	padding: 0 4px;
+}
+
+/* ***************************************
+	HOVER MENU
+*************************************** */
+.elgg-menu-hover {
+	display: none;
+	position: absolute;
+	z-index: 10000;
+
+	width: 165px;
+	border: solid 1px #E5E5E5;
+	border-color: #E5E5E5 #999 #999 #E5E5E5;
+	background-color: #FFF;
+
+	-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.50);
+	-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.50);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.50);
+}
+.elgg-menu-hover > li {
+	border-bottom: 1px solid #ddd;
+}
+.elgg-menu-hover > li:last-child {
+	border-bottom: none;
+}
+.elgg-menu-hover .elgg-heading-basic {
+	display: block;
+}
+.elgg-menu-hover a {
+	display: block;
+	padding: 2px 8px;
+	font-size: 92%;
+}
+.elgg-menu-hover a:hover {
+	background: #ccc;
+	text-decoration: none;
+}
+.elgg-menu-hover-admin a {
+	color: red;
+}
+.elgg-menu-hover-admin a:hover {
+	color: white;
+	background-color: red;
+}
+
+/* ***************************************
+	ENTITY MENU
+*************************************** */
+.elgg-menu-entity, elgg-menu-annotation {
+	float: right;
+	margin-left: 15px;
+	font-size: 90%;
+	color: #666;
+	line-height: 16px;
+	height: 16px;
+}
+.elgg-menu-entity > li, .elgg-menu-annotation > li {
+	margin-left: 15px;
+}
+.elgg-menu-entity > li > a, .elgg-menu-annotation > li > a {
+	color: #aaa;
+}
+.elgg-menu-entity > li > a, .elgg-menu-annotation > li > a {
+	display: block;
+}
+.elgg-menu-entity > li > span, .elgg-menu-annotation > li > span {
+	vertical-align: baseline;
+}
+
+/* ***************************************
+	WIDGET MENU
+*************************************** */
+.elgg-menu-widget > li {
+	position: absolute;
+	top: 4px;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	padding: 2px 2px 0 0;
+}
+.elgg-menu-widget > .elgg-menu-item-collapse {
+	left: 5px;
+}
+.elgg-menu-widget > .elgg-menu-item-delete {
+	right: 5px;
+}
+.elgg-menu-widget > .elgg-menu-item-settings {
+	right: 25px;
+}
+
+/* ***************************************
+	MORE MENUS
+*************************************** */
+/* Horizontal menus w/ separator support */
+.elgg-menu-hz > li,
+.elgg-menu-hz > li:after,
+.elgg-menu-hz > li > a {
+	display: inline-block;
+	vertical-align: middle;
+}
+/* Allow inline image blocks in horizontal menus */
+.elgg-menu-hz .elgg-body:after {
+	content: '.';
+}
+.elgg-menu > li:last-child::after {
+	display: none;
+}
+.elgg-menu-admin-footer a {
+	color: #eee;
+}
+.elgg-menu-admin-footer > li {
+	padding-right: 25px;
+}
+.elgg-menu-longtext {
+	float: right;
+}
+.elgg-menu-metadata {
+	list-style-type: none;
+	float: right;
+	margin-left: 15px;
+	font-size: 90%;
+}
+.elgg-menu-metadata > li {
+	float: left;
+	margin-left: 15px;
+}
+.elgg-menu-metadata, .elgg-menu-metadata a {
+	color: #aaa;
+}
+
+/* ***************************************
+	WIDGETS
+*************************************** */
+.elgg-widgets {
+	float: right;
+	min-height: 30px;
+}
+.elgg-widget-add-control {
+	text-align: right;
+	margin: 5px 5px 15px;
+}
+.elgg-widgets-add-panel {
+	padding: 10px;
+	margin: 0 5px 15px;
+	background: #eee;
+	border: 1px solid #ccc;
+}
+.elgg-widgets-add-panel ul {
+	padding: 0;
+	margin: 0;
+}
+.elgg-widgets-add-panel li {
+	float: left;
+	margin: 2px 10px;
+	list-style: none;
+	width: 200px;
+	padding: 4px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	font-weight: bold;
+}
+.elgg-widgets-add-panel li a {
+	display: block;
+}
+.elgg-widget-single.elgg-state-available {
+	color: #333;
+	cursor: pointer;
+}
+.elgg-widget-single.elgg-state-available:hover {
+	border-color: #aaa;
+}
+.elgg-widget-single.elgg-state-unavailable {
+	color: #888;
+}
+
+.elgg-module-widget {
+	background-color: #dedede;
+	padding: 1px;
+	margin: 0 5px 15px;
+	position: relative;
+}
+.elgg-module-widget:hover {
+	background-color: #ccc;
+}
+.elgg-module-widget > .elgg-head {
+	background-color: #f5f5f5;
+	height: 26px;
+	overflow: hidden;
+}
+.elgg-module-widget.elgg-state-draggable .elgg-widget-handle {
+	cursor: move;
+}
+.elgg-module-widget > .elgg-head h3 {
+	float: left;
+	padding: 4px 45px 0 20px;
+	color: #333;
+}
+
+.elgg-widget-collapse-button {
+	color: #c5c5c5;
+	text-decoration: none;
+}
+a.elgg-widget-collapse-button:hover,
+a.elgg-widget-collapsed:hover {
+	color: #9d9d9d;
+	text-decoration: none;
+}
+a.elgg-widget-collapse-button:before {
+	content: "\25BC";
+}
+a.elgg-widget-collapsed:before {
+	content: "\25BA";
+}
+.elgg-module-widget > .elgg-body {
+	border-top: 1px solid #dedede;
+	background-color: white;
+	width: 100%;
+	overflow: hidden;
+}
+.elgg-widget-edit {
+	display: none;
+	width: 96%;
+	padding: 2%;
+	border-bottom: 1px solid #dedede;
+}
+.elgg-widget-content {
+	padding: 10px;
+}
+.elgg-widget-placeholder {
+	border: 2px dashed #dedede;
+	margin-bottom: 15px;
+}
+
+/* ***************************************
+	GRID
+*************************************** */
+.elgg-grid {}
+.elgg-col {
+	float: left;
+}
+.elgg-col-1of1 {
+	float: none;
+}
+.elgg-col-1of2 {
+	width: 50%;
+}
+.elgg-col-1of3 {
+	width: 33.33%;
+}
+.elgg-col-2of3 {
+	width: 66.66%;
+}
+.elgg-col-1of4 {
+	width: 25%;
+}
+.elgg-col-3of4 {
+	width: 75%;
+}
+.elgg-col-1of5 {
+	width: 20%;
+}
+.elgg-col-2of5 {
+	width: 40%;
+}
+.elgg-col-3of5 {
+	width: 60%;
+}
+.elgg-col-4of5 {
+	width: 80%;
+}
+.elgg-col-1of6 {
+	width: 16.66%;
+}
+.elgg-col-5of6 {
+	width: 83.33%;
+}
+
+/* ***************************************
+	ICONS
+*************************************** */
+.elgg-icon {
+	background: transparent url(http://23.253.234.232/_graphics/admin_sprites.png) no-repeat left;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin: 0 2px;
+	vertical-align: text-bottom;
+}
+.elgg-module .elgg-head .elgg-icon {
+	vertical-align: baseline;
+}
+.elgg-icon-delete:hover,
+.elgg-icon-delete-alt:hover {
+	background-position: 0 -0px;
+}
+.elgg-icon-delete,
+.elgg-icon-delete-alt {
+	background-position: 0 -18px;
+}
+.elgg-icon-drag-arrow:hover {
+	background-position: 0 -36px;
+}
+.elgg-icon-drag-arrow {
+	background-position: 0 -54px;
+}
+.elgg-icon-hover-menu:hover {
+	background-position: 0 -72px;
+}
+.elgg-icon-hover-menu {
+	background-position: 0 -90px;
+}
+.elgg-icon-settings-alt:hover {
+	background-position: 0 -108px;
+}
+.elgg-icon-settings-alt {
+	background-position: 0 -126px;
+}
+
+.elgg-ajax-loader {
+	background: white url(http://23.253.234.232/_graphics/ajax_loader_bw.gif) no-repeat center center;
+	min-height: 33px;
+	min-width: 33px;
+}
+
+/* ***************************************
+	AVATAR ICONS
+*************************************** */
+.elgg-avatar {
+	position: relative;
+	display: inline-block;
+}
+.elgg-avatar > a > img {
+	display: block;
+}
+.elgg-avatar-tiny > a > img {
+	width: 25px;
+	height: 25px;
+	
+	/* remove the border-radius if you don't want rounded avatars in supported browsers */
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	
+	-moz-background-clip:  border;
+	background-clip:  border;
+
+	-webkit-background-size: 25px;
+	-khtml-background-size: 25px;
+	-moz-background-size: 25px;
+	-o-background-size: 25px;
+	background-size: 25px;
+}
+.elgg-avatar-small > a > img {
+	width: 40px;
+	height: 40px;
+	
+	/* remove the border-radius if you don't want rounded avatars in supported browsers */
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	-moz-background-clip:  border;
+	background-clip:  border;
+
+	-webkit-background-size: 40px;
+	-khtml-background-size: 40px;
+	-moz-background-size: 40px;
+	-o-background-size: 40px;
+	background-size: 40px;
+}
+.elgg-avatar-medium > a > img {
+	width: 100px;
+	height: 100px;
+}
+.elgg-avatar-large > a > img {
+	width: 200px;
+	height: 200px;
+}
+.elgg-avatar > .elgg-icon-hover-menu {
+	display: none;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	cursor: pointer;
+}
+.elgg-avatar {
+	position: relative;
+}
+.elgg-avatar > a > img {
+	display: block;
+}
+.elgg-avatar-tiny > a > img {
+	width: 25px;
+	height: 25px;
+
+	/* remove the border-radius if you don't want rounded avatars in supported browsers */
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	-moz-background-clip:  border;
+	background-clip:  border;
+
+	-webkit-background-size: 25px;
+	-khtml-background-size: 25px;
+	-moz-background-size: 25px;
+	-o-background-size: 25px;
+	background-size: 25px;
+}
+.elgg-avatar-small > a > img {
+	width: 40px;
+	height: 40px;
+
+	/* remove the border-radius if you don't want rounded avatars in supported browsers */
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	-moz-background-clip:  border;
+	background-clip:  border;
+
+	-webkit-background-size: 40px;
+	-khtml-background-size: 40px;
+	-moz-background-size: 40px;
+	-o-background-size: 40px;
+	background-size: 40px;
+}
+.elgg-avatar-medium > a > img {
+	width: 100px;
+	height: 100px;
+}
+.elgg-avatar-large > a > img {
+	width: 200px;
+	height: 200px;
+}
+
+/* ***************************************
+	PLUGINS
+**************************************** */
+.elgg-plugin {
+	border: 1px solid #999;
+	margin: 0 0 5px;
+	padding: 0 7px 4px 10px;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.elgg-plugin.elgg-state-draggable > .elgg-image-block .elgg-head {
+	cursor: move;
+}
+.elgg-plugin p {
+	margin: 0;
+}
+.elgg-plugin h3 {
+	color: black;
+	padding-bottom: 10px;
+}
+.elgg-plugin-settings {
+	font-weight: normal;
+	font-size: 0.9em;
+}
+.elgg-plugin-screenshot {
+	display: inline;
+}
+.elgg-plugin-screenshot img {
+	border: 1px solid #999;
+}
+.elgg-plugin-screenshot-lightbox {
+	display: block;
+	position: absolute;
+	width: 99%;
+	text-align: center;
+	background-color: white;
+	border: 1px solid #999;
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.elgg-plugin-screenshot-lightbox h2 {
+	color: black;
+}
+.elgg-plugin.elgg-state-active {
+	background: white;
+}
+.elgg-plugin.elgg-state-inactive {
+	background: #dedede;
+}
+.elgg-plugin .elgg-state-error {
+	background: #fbe3e4;
+	color: #8a1f11;
+	border-color: #fbc2c4;
+	font-weight: bold;
+}
+.elgg-plugin .elgg-state-warning {
+	background: #fbedb5;
+	color: #000000;
+	border-color: #fbe58b;
+	font-weight: bold;
+}
+.elgg-plugin-more {
+	background-color: #eee;
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+
+	padding: 5px 10px;
+	margin: 4px 0;
+}
+ul.elgg-plugin-categories, ul.elgg-plugin-categories > li,
+ul.elgg-plugin-resources, ul.elgg-plugin-resources > li {
+	display: inline;
+}
+.elgg-plugin-category-bundled {
+	border-width: 2px;
+	border-color: #0054A7;
+}
+
+/****************************************
+	MARKDOWN
+****************************************/
+.elgg-markdown {
+	margin: 15px;
+}
+.elgg-markdown h1,
+.elgg-markdown h2,
+.elgg-markdown h3,
+.elgg-markdown h4,
+.elgg-markdown h5,
+.elgg-markdown h6 {
+	margin: 1em 0 1em -15px;
+	color: #333;
+}
+.elgg-markdown ol {
+	list-style: decimal;
+	padding-left: 2em;
+}
+.elgg-markdown ul {
+	list-style: disc;
+	padding-left: 2em;
+}
+.elgg-markdown p {
+	margin: 15px 0;
+}
+
+/* ***************************************
+	MISC
+*************************************** */
+.elgg-content-thin {
+	max-width: 600px;
+}
+
+.elgg-subtext {
+	color: #666;
+	font-size: 85%;
+	line-height: 1.2em;
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+.elgg-text-help {
+	display: block;
+	font-size: 85%;
+	font-style: italic;
+}
+
+.elgg-longtext-control {
+	margin-left: 14px;
+	font-size: 80%;
+	cursor: pointer;
+}
+
+table.mceLayout {
+	width:100% !important;
+}
+
+.elgg-output dt {
+	font-weight: bold;
+}
+.elgg-output dd {
+	margin: 0 0 1em 2em;
+}
+
+/* ***************************************
+	HELPERS
+*************************************** */
+.hidden {
+	display: none;
+}
+.centered {
+	margin: 0 auto;
+}
+.center {
+	text-align: center;
+}
+.float {
+	float: left;
+}
+.float-alt {
+	float: right;
+}
+.elgg-toggle {
+	cursor: pointer;
+}
+.elgg-discover .elgg-discoverable {
+	display: none;
+}
+.elgg-discover:hover .elgg-discoverable {
+	display: block;
+}
+.elgg-transition:hover {
+	opacity: .7;
+}
+
+/* ***************************************
+	BORDERS AND SEPARATORS
+*************************************** */
+.elgg-border-plain {
+	border: 1px solid #eeeeee;
+}
+.elgg-border-transition {
+	border: 1px solid #eeeeee;
+}
+.elgg-divide-top {
+	border-top: 1px solid #CCCCCC;
+}
+.elgg-divide-bottom {
+	border-bottom: 1px solid #CCCCCC;
+}
+.elgg-divide-left {
+	border-left: 1px solid #CCCCCC;
+}
+.elgg-divide-right {
+	border-right: 1px solid #CCCCCC;
+}
+
+/* ***************************************
+	SPACING (from OOCSS)
+*************************************** */
+.pan{padding:0}
+.pas{padding:5px}
+.pam{padding:10px}
+.pal{padding:20px}
+.ptn{padding-top:0}
+.pts{padding-top:5px}
+.ptm{padding-top:10px}
+.ptl{padding-top:20px}
+.prn{padding-right:0}
+.prs{padding-right:5px}
+.prm{padding-right:10px}
+.prl{padding-right:20px}
+.pbn{padding-bottom:0}
+.pbs{padding-bottom:5px}
+.pbm{padding-bottom:10px}
+.pbl{padding-bottom:20px}
+.pln{padding-left:0}
+.pls{padding-left:5px}
+.plm{padding-left:10px}
+.pll{padding-left:20px}
+.phn{padding-left:0;padding-right:0}
+.phs{padding-left:5px;padding-right:5px}
+.phm{padding-left:10px;padding-right:10px}
+.phl{padding-left:20px;padding-right:20px}
+.pvn{padding-top:0;padding-bottom:0}
+.pvs{padding-top:5px;padding-bottom:5px}
+.pvm{padding-top:10px;padding-bottom:10px}
+.pvl{padding-top:20px;padding-bottom:20px}
+.man{margin:0}
+.mas{margin:5px}
+.mam{margin:10px}
+.mal{margin:20px}
+.mtn{margin-top:0}
+.mts{margin-top:5px}
+.mtm{margin-top:10px}
+.mtl{margin-top:20px}
+.mrn{margin-right:0}
+.mrs{margin-right:5px}
+.mrm{margin-right:10px}
+.mrl{margin-right:20px}
+.mbn{margin-bottom:0}
+.mbs{margin-bottom:5px}
+.mbm{margin-bottom:10px}
+.mbl{margin-bottom:20px}
+.mln{margin-left:0}
+.mls{margin-left:5px}
+.mlm{margin-left:10px}
+.mll{margin-left:20px}
+.mhn{margin-left:0;margin-right:0}
+.mhs{margin-left:5px;margin-right:5px}
+.mhm{margin-left:10px;margin-right:10px}
+.mhl{margin-left:20px;margin-right:20px}
+.mvn{margin-top:0;margin-bottom:0}
+.mvs{margin-top:5px;margin-bottom:5px}
+.mvm{margin-top:10px;margin-bottom:10px}
+.mvl{margin-top:20px;margin-bottom:20px}
+
+/* REPORTED CONTENT */
+.reported-content {
+	margin: 5px 0 0;
+	padding: 5px 7px 3px 9px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.reported-content p {
+	margin: 0;
+}
+.reported-content-active {
+	border: 1px solid #D3322A;
+	background: #F7DAD8;
+}
+.reported-content-archived {
+	border: 1px solid #666666;
+	background: #dedede;
+}
+.reported-content .controls {
+	float: right;
+	margin: 5px 0 0 10px;
+}
+.report-details {
+	background-color: white;
+	padding: 5px;
+	margin-bottom: 5px;
+	max-width: 500px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.elgg-widget-content .reported-content .elgg-button {
+	display: block;
+	margin: 5px;
+}
+/* TinyMCE */
+.elgg-page .mceEditor table.mceLayout {
+	border: 1px solid #CCC;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.elgg-page table.mceLayout tr.mceFirst td.mceToolbar,
+.elgg-page table.mceLayout tr.mceLast td.mceStatusbar {
+	border-width: 0px;
+}
+.mceButton {
+	-webkit-border-radius: 4px; 
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.mceLast .mceStatusbar {
+	padding-left: 5px;
+}
+
+.uservalidation-module > .elgg-head * {
+	color: white;
+}
+.uservalidation-module > .elgg-body * {
+	color: #333;
+}.projects-profile > .elgg-image {
+	margin-right: 10px;
+}
+.projects-profile img {
+	width: 100%;
+	height: auto;
+}
+.projects-stats {
+	background: #eeeeee;
+	padding: 5px;
+	margin-top: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.projects-stats p,
+.elgg-main .projects-stats ul {
+    margin: 0;
+}
+.projects-profile-fields .odd,
+.projects-profile-fields .even {
+	background: #f4f4f4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 2px 4px;
+	margin-bottom: 7px;
+}
+.projects-profile-fields .elgg-output {
+	margin: 0;
+}
+#projects-tools > li {
+	width: 48%;
+	min-height: 200px;
+	margin-bottom: 40px;
+}
+#projects-tools > li:nth-child(odd) {
+	margin-right: 4%;
+}
+.projects-widget-viewall {
+	float: right;
+	font-size: 85%;
+}
+.projects-latest-reply {
+	float: right;
+}
+.elgg-menu-projects-my-status li a {
+	display: block;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: white;
+	margin: 3px 0 5px 0;
+	padding: 2px 4px 2px 8px;
+}
+.elgg-menu-projects-my-status li a:hover {
+	background-color: #0054A7;
+	color: white;
+	text-decoration: none;
+}
+.elgg-menu-projects-my-status li.elgg-state-selected > a {
+	background-color: #4690D6;
+	color: white;
+}
+.projectLabel span.required {
+	margin: 0 0 0 5px;
+}
+/* project gallery */
+.project-gallery-item {
+    text-align: center;
+    width: 145px;
+}
+.project-gallery-item h3 {
+    height: 29px;
+}
+.bodyProjects .elgg-main.elgg-body.flN ul.elgg-gallery {
+    overflow: visible;
+    margin: 0;
+}
+.bodyProjects .elgg-main.elgg-body.flN ul.elgg-gallery:after {
+    clear: both;
+    content: "";
+    display: table;
+    height: 0;
+    visibility: hidden;
+}
+.bodyProjects .elgg-main.elgg-body.flN ul.elgg-gallery:before {
+    content: "";
+    display: table;
+}
+.bodyProjects .elgg-main.elgg-body.flN ul.elgg-gallery li.elgg-item,
+.bodyProjects .elgg-main.elgg-body.flN .project-gallery-item {
+	overflow: hidden;
+	float: left;
+    margin-right: 12px !important;
+    margin-bottom: 12px !important;
+    width: 150px;
+    height: 215px;
+    padding: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.bodyProjects .elgg-main.elgg-body.flN ul.elgg-gallery li.elgg-item:nth-child(4n),
+.bodyProjects .elgg-main.elgg-body.flN .project-gallery-item:nth-child(4n) {
+    margin-right: 0!important;
+}
+.bodyProjects .elgg-main.elgg-body.flN .project-gallery-item {
+	text-align: left;
+	width: 100%;
+}
+li.elgg-item .project-gallery-item {
+    width: auto;
+}
+.bodyProjects .elgg-main.elgg-body.flN .project-gallery-item h3 {
+	font-size: 12px;
+	line-height: 15px;
+	height: 15px;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 0 0 10px;
+}
+.bodyProjects .elgg-main.elgg-body.flN .project-gallery-item > a {
+	display: block;
+	text-align: center;
+	height: 145px;
+    width: 100%;
+	margin: 0 0 5px;
+	overflow: hidden;
+}
+.bodyProjects .elgg-main.elgg-body.flN .project-gallery-item > a,
+.bodyProjects .elgg-main.elgg-body.flN .elgg-item .project-gallery-item > a img {
+	max-height: 100%;
+	max-width: 100%;
+}
+.bodyProjects .elgg-main.elgg-body.flN .elgg-item .project-gallery-item > a img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryTitle,
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo {
+    margin: 0 12px 5px;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryTitle {
+    padding: 0 0 8px;
+	height: 26px;
+    overflow: hidden;
+    border-bottom: 1px solid #C7C7C7;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryTitle a {
+    font-size: 12px;
+	line-height: 1.2;
+    display: block;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo {
+    margin-bottom: 0;
+    overflow: hidden;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo > span {
+    float: left;
+    margin: 0;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo > span,
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo > span > a {
+    font-size: 11px;
+    line-height: 22px;
+    display: block;
+    height: 20px;
+    text-decoration: none;
+    color: #555;
+    overflow: hidden;
+    width: 42px;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo > span > a > span {
+    display: block;
+    float: left;
+    height: 20px;
+    margin: 0 3px 0 0;
+    width: 18px;
+}
+.bodyProjects .elgg-main.elgg-body.flN .projectGalleryMoreInfo > span.favCounter {
+    float: right;
+    margin: 0;
+}
+.projectGalleryMoreInfo span.discussionCounter .elgg-icon {
+    background: url('http://23.253.234.232/mod/projects/graphics/ico-proj-1.png') 0 50% no-repeat;
+}
+.projectGalleryMoreInfo span.membersCounter .elgg-icon {
+    background: url('http://23.253.234.232/mod/projects/graphics/ico-proj-2.png') 0 50% no-repeat;
+}
+.projectGalleryMoreInfo span.favCounter .elgg-icon {
+    background: url('http://23.253.234.232/mod/projects/graphics/ico-proj-3.png') 0 3px no-repeat;
+}
+.bodyProjects .elgg-form-projects-invite {
+	min-height: 700px;
+}
+.bodyProjects .elgg-main.elgg-body.flN .elgg-item .isMarkedAsFavorite {
+    display: none;
+}
+/* projects' profile */
+.project-profile-layout .project-profile-left-col {
+	float: left;
+	width: 65%;
+}
+.project-profile-layout .project-profile-right-col {
+	float: right;
+	margin-left: 10px;
+	width: 33%;
+}
+.projects-profile-box {
+	border: 1px solid #d0d0d0;
+	margin-bottom: 10px;
+}
+.projects-profile-box h3 {
+	border-bottom: 1px solid #d0d0d0;
+}
+.projects-profile-box.projects-profile,
+.projects-profile-box h3,
+.projects-profile-box .elgg-module {
+	padding: 10px;
+}
+.projects-profile-box .elgg-module {
+	border: none;
+}
+.bodyProject_profile .elgg-main ul {
+	list-style: none;
+}
+.bodyProject_profile .elgg-head {
+	border-bottom: 1px solid #d0d0d0 !important;
+	line-height: 30px;
+	padding-bottom: 10px !important;
+	margin-bottom: 20px !important;
+}
+.bodyProject_profile .elgg-head .join-requests {
+	float: right;
+	margin-right: 5px;
+}
+/* Project Objetives */
+.projects-project-objectives ul.projectsObjectivesList li {
+	line-height: 25px;
+}
+.projects-project-objectives ul.projectsObjectivesList li span {
+	margin: 0 5px 0 0;
+}
+/* Buttons socials */
+ul.projectsSocialButtons li {
+	display: inline-block;
+}
+ul.projectsSocialButtons li a {
+	display: block;
+	height: 32px;
+	width: 32px;
+}
+ul.projectsSocialButtons li a.btnFacebook {
+	background: url('http://23.253.234.232/mod/projects/graphics/facebook.png');
+}
+ul.projectsSocialButtons li a.btnTwitter {
+	background: url('http://23.253.234.232/mod/projects/graphics/twitter.png');
+}
+ul.projectsSocialButtons li a.btnLinkedin {
+	background: url('http://23.253.234.232/mod/projects/graphics/linkedin.png');
+}
+/* Welcome Message */
+.projectsWelcomeMessageContent {
+	padding: 20px;
+	max-height: 300px;
+	max-width: 600px;
+}
+.welcomeMessageWrapper span.label {
+	display: block;
+	margin-bottom: 10px;
+}
+.welcomeMessageWrapper .preview-welcome-message {
+	float: right;
+}
+.welcomeMessageWrapper p.note {
+	display: block;
+	margin-top: 10px;
+}
+.bodyProject_discussion .discussionsNone {
+	margin: 10px 0 0 10px;
+}
+.bodyProject_invite .ui-autocomplete {
+	width: 819px !important;
+}
+/* empty section */
+.emptySection h2 {
+    text-align: center;
+    color: #b5b5b5;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.emptySection {
+    padding: 20px 0 0 0;
+    margin: 0 0 20px;
+}
+.emptySection .helpEmptySection {
+	height: 350px;
+	background: #eee;
+}
+.emptySection .helpEmptySection h4 {
+    line-height: 350px;
+    text-align: center;
+    color: #b5b5b5;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 2px 1px rgba(255, 255, 255, 0.6);
+}
+/* Nueva posicion del menu del proyecto*/
+.bodyProject ul.elgg-menu-project-profile-menu {
+    margin-left: 120px !important;
+    top: 15px;
+}
+.bodyProject .elgg-layout .sideBarsContainer {
+    top: -30px;
+}
+.bodyProject .elgg-layout .sideBarsContainer.sideBarsWidget {
+    top: 20px;
+}	.cThis {
+		clear: both;
+		font-size: 0;
+		height: 0;
+		line-height: 0;
+	}
+
+	/* Form */
+	#keetup_categories_form {
+		padding: 15px 0px;
+		width: 550px; 
+	}
+	#keetup_categories_form label,
+	#keetup_categories_form .label {
+		clear: both;
+		float: left;
+		padding:5px 0;
+		/*width:546px;*/
+	}
+	#keetup_categories_form label span.lft,
+	#keetup_categories_form .label span.lft {
+		display: block; 
+		float: left;
+		line-height:25px;
+		/*text-align: right;*/
+		padding:0 5px 0 0;
+		width:130px;
+	}
+	#keetup_categories_form label span.rgt,
+	#keetup_categories_form .label span.rgt {
+		display: block;
+		float: right;
+		width: 400px;
+	}
+	#keetup_categories_form label span.date,
+	#keetup_categories_form .label span.date {
+		line-height:25px;
+	}
+	#keetup_categories_form label input,
+	#keetup_categories_form .label input,	 
+	#keetup_categories_form label textarea,
+	#keetup_categories_form .label textarea {
+		width: 388px;
+	}
+	#keetup_categories_form label input[type="checkbox"] {
+		width: 20px;
+	}
+	
+	
+	#keetup_categories_form small {
+		display: block;
+		font-weight: normal;
+		color: #999;
+		padding:4px 0 0;
+		font-style: italic;
+	}
+	#keetup_categories_form div.buttons {
+		padding-right: 6px;
+		text-align: right;
+	}
+	
+	.hidden {
+		display: none;
+	}
+	
+	#keetup_categories_vf_container{
+		margin: 10px 0 20px;
+	}
+	
+	#keetup_categories_vf_container #keetup_categories_vf_preview_container {
+		margin: 10px 0 20px;
+	}
+	
+	#keetup_categories_vf_preview_container ul {
+		list-style-type: none;
+		padding: 0 0 0 10px;
+	}
+	
+	#keetup_categories_vf_preview_container ul li {
+		overflow: hidden;
+		margin: 10px 0;
+		background: #EFEFEF;
+		padding: 3px 0 1px;
+	}
+	
+	#keetup_categories_vf_preview_container ul li.selected {
+		background: #BFBFBF; 
+	}
+	
+	#keetup_categories_vf_preview_container ul li span {
+		margin: 5px 10px;
+		padding: 0 15px 0 0;
+		float: left;
+	}
+	
+	#keetup_categories_vf_preview_container ul li span {
+		
+	}
+	
+	#keetup_categories_vf_preview_container ul li .submit_button {
+		float: right;
+		margin: 0 10px;
+	}	
+	
+	/*Listing*/
+	.ktCategoriesWrapper {
+	    border-top: 1px solid #d5d9e0;
+	    padding: 10px 0 0 0;
+	}
+	.ktCategoriesWrapper h3 {
+	    color: #026f9c;
+	    padding: 0 0 10px 3px;
+	    margin: 0 0 9px 0;
+	    font-size: 12px;
+	    font-weight: bold;
+	    line-height: 14px;
+	    border-bottom: 1px solid #d5d9e0;
+	}
+	.ktCategoriesWrapper .listItem {
+	    border-bottom: 1px solid #d5d9e0;
+	    padding: 0 0 10px 6px;
+	    margin: 0 0 10px 0;
+	}
+	.ktCategoriesWrapper .listItem {
+	    padding-bottom: 5px; /* IE7 */
+	}
+	.ktCategoriesWrapper .listItem .inner {
+	    width: 72%;
+	    float: left;
+	}
+	.ktCategoriesWrapper .listItem .title {
+	    font-size: 12px;
+	    line-height: 16px;
+	    color: #13364f;
+	    margin: 0 0 2px 0;
+	}
+	.ktCategoriesWrapper .listItem .title a {
+	    text-decoration: underline;
+	}
+	.ktCategoriesWrapper .listItem .title a:hover {
+	    text-decoration: none;
+	}
+	.ktCategoriesWrapper .listItem .txt {
+	    font-size: 11px;
+	    line-height: 13px;
+	    color: #7691a6;
+	    margin: 0 0 4px 0;
+	}
+	.ktCategoriesWrapper .listItem .txt2 {
+	    font-size: 11px;
+	    font-style: italic;
+	    line-height: 13px;
+	    color: #32677d;
+	    margin: 0 0 8px 0;
+	}
+	.ktCategoriesWrapper .listItem ul.options,
+	.contStHlpSettings ul.options,
+	.listAnswerQuestions ul.options {
+	    margin: 11px 0 0 0;
+	    padding: 0;
+	    list-style: none;
+	    text-align: right;
+	    overflow: hidden;
+	    float: right;
+	    height: 14px;
+	}
+	.listAnswerQuestions ul.options {
+	    margin-top: 7px;
+	}
+	.ktCategoriesWrapper .listItem ul.options li,
+	.contStHlpSettings ul.options li,
+	.listAnswerQuestions  ul.options li {
+	    display: block;
+	    font-size: 11px;
+	    float: left;
+	}
+	.ktCategoriesWrapper .listItem ul.options li a,
+	.contStHlpSettings ul.options li a,
+	.listAnswerQuestions ul.options li a {
+	    color: #7691a6;
+	    font-size: 11px;
+	    display: block;
+	    text-decoration: none;
+	}
+	.ktCategoriesWrapper .listItem ul.options li a:hover,
+	.contStHlpSettings ul.options li a:hover,
+	.listAnswerQuestions ul.options li a:hover {
+	    text-decoration: underline;
+	}
+	.ktCategoriesWrapper .listItem ul.options li.one,
+	.contStHlpSettings ul.options li.one,
+	.listAnswerQuestions ul.options li.one {
+	    margin: 0 8px 0 0;
+	}
+	.ktCategoriesWrapper .listItem ul.options li.two,
+	.contStHlpSettings ul.options li.two,
+	.listAnswerQuestions ul.options li.two {
+	    background: url(http://23.253.234.232/mod/keetup_categories/graphics/ico-delete.png) 0 0 no-repeat;
+	    width: 12px;
+	    height: 12px;
+	    margin: 2px 0 0 0;
+	}
+	.ktCategoriesWrapper .listItem ul.options li.two a,
+	.contStHlpSettings ul.options li.two a,
+	.listAnswerQuestions ul.options li.two a {
+	    width: 12px;
+	    height: 12px;
+	}	body {
+    background: transparent!important;
+}
+/* general */
+a {
+    color: #497ec1;
+}
+.elgg-page > .elgg-inner {
+    margin: 0 auto;
+        max-width: none;
+        min-width: 320px;
+    padding: 0;
+}
+body .elgg-page-body .elgg-inner {
+    padding: 0;
+}
+.elgg-page-body {
+    padding: 0;
+}
+.elgg-page.elgg-page-admin {
+    background: url(http://23.253.234.232/mod/theme_professionalelgg18/graphics/custom/fon-main-body-lines.png) 0 0 repeat-y #fff;
+    overflow: hidden;
+}
+/* header */
+.elgg-page-header {
+    border: none;
+    padding: 15px 10px 0;
+    background: #e4e4e4;
+}
+html body .elgg-page-header {
+    height: auto;
+}
+.elgg-menu-user {
+    margin: 0;
+}
+body .elgg-menu-user {
+    color: #7b858a;
+}
+body .elgg-menu-user a {
+    color: #497ec1;
+}
+/* main title */
+body .elgg-main > .elgg-head {
+    padding-top: 5px;
+}
+body .elgg-main > .elgg-head h2 {
+    margin: 0;
+}
+/* sidebar */
+.elgg-sidebar {
+    margin: 0;
+    float: left;
+    width: 180px;
+    padding: 0;
+}
+.elgg-sidebar .elgg-module-main {
+    background: none;
+    border: none;
+    padding: 0;
+}
+.elgg-admin-sidebar-menu h2 {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #565656;
+    padding: 0 2px 10px;
+    padding-top: 5px; /* fix */
+    margin: 0 0 10px;
+}
+/* page sidebar menu */
+.elgg-page ul.elgg-menu.elgg-menu-page {
+    border-bottom: 1px solid #dfdfdf;
+    padding: 0;
+}
+.elgg-page .elgg-menu-page li {
+	border-top: 1px solid #dfdfdf;
+}
+.elgg-page .elgg-menu-page li > a {
+    background: none;
+    display: block;
+	color: #7b858a;
+    padding: 15px 10px!important;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    margin: 0;
+    border: none;
+}
+.elgg-page .elgg-menu-page li > a,
+.elgg-page ul.treeview,
+.elgg-page .treeview ul {
+    font-size: 11px;
+    line-height: 1.2;
+}
+.elgg-page .elgg-menu-page li.elgg-state-selected > a {
+    border-right: 1px solid #fff;
+    padding-right: 5px;
+}
+.elgg-page .elgg-menu-page li > a:hover,
+.elgg-page .elgg-menu-page li.elgg-state-selected > a {
+	color: #497ec1;
+}
+.elgg-page .elgg-menu-page li.elgg-state-selected > a {
+	cursor: default;
+}
+/* sidebar sub menu */
+.elgg-admin-sidebar-menu .elgg-child-menu {
+    padding-left: 25px;
+    padding-bottom: 10px;
+    border-top: 1px solid #dfdfdf;
+}
+.elgg-page .elgg-menu-page .elgg-child-menu li {
+    border: none;
+}
+.elgg-page .elgg-menu-page .elgg-child-menu li > a {
+    padding: 10px 0;
+}
+.elgg-page .elgg-menu-page .elgg-child-menu li.elgg-state-selected > a {
+    border-right: none;
+    font-weight: bold;
+}
+/* main container */
+.elgg-main {
+    border: none;
+    padding: 0;
+    margin: 0 10px 0 205px;
+    float: none;
+}
+/* color picker */
+.elgg-form-theme-professionalelgg18-style .colorPicker {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: url(http://23.253.234.232/mod/theme_professionalelgg18/vendors/colorpicker/images/select.png);
+}
+/* widgets */
+.elgg-module-widget > .elgg-head {
+    background-color: #F1F6F9;
+}
+.elgg-module-widget > .elgg-head h3 {
+    color: #7B858A;
+    padding: 8px 45px 6px 20px;
+}
+.elgg-module-widget > .elgg-body {
+     background-color: #ffffff;
+}
+.elgg-module-widget > .elgg-body {
+    border-color: #dfdfdf;
+}
+.elgg-module-widget,
+.elgg-module-widget:hover {
+    background-color: #dfdfdf;
+}
+/* external pages */
+.elgg-form.elgg-form-settings.elgg-form-expages-edit textarea.elgg-input-longtext {
+	width: 100%;
+}
+/* add widget */
+.elgg-button[rel="toggle"] {
+	float: right;
+    margin-right: 7px;
+    margin-top: -31px;
+}
+/* buttons */
+.elgg-button {
+    font-weight: normal;
+}
+/* footer */
+.elgg-page-footer {
+    border: none;
+    margin-bottom: 0;
+    background: transparent;
+}
+.elgg-page-footer a {
+    color: #333;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 11px;
+}
+.elgg-menu-admin-footer > li {
+    padding: 0;
+    margin: 0 5px 0 0;
+}
+.elgg-menu-admin-footer > li:after {
+    content: "|";
+    padding: 0 0 0 5px;
+}
+.elgg-menu-admin-footer > li:after {
+    margin: 0;
+}
+/* forms */
+.elgg-main form.elgg-form.elgg-form-admin-plugins-filter select,
+.elgg-main form.elgg-form.elgg-form-admin-plugins-sort select {
+    margin: 0;
+    width: 25%;
+    min-width: 0;
+}
+.elgg-main form.elgg-form.elgg-form-admin-plugins-filter .elgg-button,
+.elgg-main form.elgg-form.elgg-form-admin-plugins-sort .elgg-button {
+    min-width: 75px;
+}
+.elgg-page-admin .elgg-form-settings {
+    max-width: none;
+}
+.elgg-page-admin .elgg-form-settings .elgg-foot select {
+    margin-top: 0;
+}
+/* plugin list */
+.elgg-plugin {
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.elgg-plugin,
+.elgg-plugin-category-bundled {
+    border-color: #dfdfdf;
+    border-width: 1px;
+}
+.elgg-plugin-category-bundled {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15) inset;
+}
+.elgg-plugin.elgg-state-inactive {
+    background: #f3f8fb;
+}
+ul.elgg-menu.elgg-menu-metadata {
+    list-style: none;
+}
+ul.elgg-menu.elgg-menu-metadata a {
+    color: #497ec1;
+}
+.elgg-plugin .elgg-state-error {
+    border: none;
+    font-weight: normal;
+    margin: 0 0 5px;
+    padding: 5px;
+}
+.elgg-plugin-more {
+    background: #dfdfdf;
+}
+/* table */
+.elgg-table-alt th,
+.elgg-module-inline > .elgg-head {
+    background: #f3f8fb;
+}
+.elgg-table-alt,
+.elgg-table-alt td,
+th {
+    border-color: #dfdfdf;
+}
+/* generic module */
+.elgg-module-inline > .elgg-head h3 {
+    color: #565656;
+    padding: 4px 8px;
+    line-height: 1.2;
+    font-size: 13px;
+}
+/* pagination */
+.elgg-pagination a:hover {
+    color: #565656;
+}
+/* tabs */
+.elgg-tabs li {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.elgg-tabs .elgg-state-selected a {
+    top: 0;
+}
+/* notices */
+.elgg-admin-notices p {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #3a87ad;
+    box-shadow: none;
+    font-weight: normal;
+    padding: 8px 35px 8px 14px;
+    margin: 0 0 5px;
+}
+/* fixes */
+#developer-settings-form div > label {
+    display: inline;
+}
+/**** some responsive stuff ****/
+@media only screen
+and (min-width : 320px)
+and (max-width : 785px) {
+    /* general */
+    body .elgg-main {
+    	margin-left: 10px;
+	}
+    /* header */
+    .elgg-heading-site {
+        float: none;
+        font-size: 18px;
+        margin: 0 0 5px;
+    }
+    .elgg-menu-user {
+        float: none;
+    }
+    body .elgg-page-header {
+        padding-bottom: 10px;
+    }
+    /* disabled menu items */
+    ul li.elgg-menu-item-appearance-default-widgets {
+        display: none;
+    }
+}

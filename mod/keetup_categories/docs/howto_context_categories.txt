@@ -1,0 +1,44 @@
+This is a howto that explain how to add different categories depending by context. For example,
+ we could have one category for blog and another categories for bookmarks depending by contexts.
+
+We have 2 ways to add allowed contexts to the configuration.
+
+The first one is go to the mod/keetup_categories/config/allowed_contexts.xml file, and add there the contexts.
+
+The second way is adding a plugin hook that handles the contexts.
+
+
+== THIS PLUGIN HOOK SHOULD BE REGISTERED IN THE START OUTSIDE THE INIT FUNCTIONS. ==
+
+elgg_register_plugin_hook_handler('keetup_categories:allow', 'context', 'kt_theme_allow_categories');
+
+== THE PLUGIN HOOK FUNCTION ==
+	/**
+	 * This hook hacks the keetup categories to add extra contexts
+	 * @param type $hook
+	 * @param type $entity_type
+	 * @param type $returnvalue
+	 * @param type $params
+	 * @return string 
+	 */
+	function kt_theme_allow_categories($hook, $entity_type, $returnvalue, $params) { 
+		if ($hook == 'keetup_categories:allow' && $entity_type == 'context') {
+			//$returnvalue[] = 'kt_news_dummy';
+			$returnvalue[] = 'kt_news';
+			$returnvalue[] = 'kt_forum_dummy';
+			$returnvalue[] = 'kt_guest_bartending_dummy';
+			$returnvalue[] = 'kt_product_dummy';
+			$returnvalue[] = 'kt_awards_profile_dummy';
+			$returnvalue[] = 'kt_recipes_books_dummy';
+			$returnvalue[] = 'kt_recipes_books_dummy';
+
+		}
+
+		return $returnvalue;
+	}
+
+After add the context, remember to add this key to the lang
+ keetup_categories:category_group:context:{REPLACE_THIS_WITH_THE_CONTEXT}
+
+If the context is help:
+Ej: 'keetup_categories:category_group:context:help' => 'Help'

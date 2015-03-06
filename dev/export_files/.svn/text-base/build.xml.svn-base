@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="build" description="Build an exportable file to send to a client" default="main" >
+	<property file="./build.properties" />
+	
+	<!--Utility targets-->
+	<target name="set_dates" description="sets three properties with the standard formats, prefixed with start.: start.DSTAMP, start.TSTAMP, and start.TODAY.">
+	<!--By default, the DSTAMP property is in the format "%Y%m%d", TSTAMP is in the format "%H%M", and TODAY is in the format "%B %d %Y". -->
+		<tstamp prefix="start"/>
+	</target>
+
+	<target name="remove_folder">
+		<delete dir="${general.base_folder}${project.zip_name}" includeemptydirs="true" verbose="true" failonerror="true" />
+	</target>
+
+	<!--Begin-->
+	<target name="prepare_statement" depends="set_dates">
+		<echo msg="Preparing enviroment..." />
+		<phingcall target="remove_folder"/>
+	</target>
+
+<!--	<target name="finish_statement" depends="email">-->
+	<target name="finish_statement">
+		<echo msg="Cleaning enviroment..." />
+		<phingcall target="remove_folder"/>
+	</target>
+	
+	
+	
+	<target name="export_project" description="Get a checkout to temp file">
+		<svnexport
+		   svnpath="/usr/bin/svn"
+		   username="${svn.user}"
+		   password="${svn.pass}"
+		   repositoryurl="${svn.repository}${svn.folder}"
+		   todir="${general.base_folder}${project.zip_name}"
+		/>
+	</target>
+		
+	<target name="compress_project" description="Compress the folder into zip format">
+		<exec command="zip -r ${project.zip_name}_${start.DSTAMP}.zip ${project.zip_name}" dir="${general.base_folder}"/>
+	</target>
+
+	<target name="email">
+    	<mail recipient="${mail.recipient}" subject="Se exporto el archivo ${project.zip_name} del proyecto ${project.name}">
+    		El archivo ${project.zip_name} del proyecto ${project.name} esta listo para descargarse.
+    		
+    		Link: ${general.server_url}${project.server_proyect_folder}/releases/${project.zip_name}_${start.DSTAMP}.zip
+    		
+    		Saludos
+    		
+    		Keetup Team.
+    	</mail>
+  	</target>	
+	
+	<target name="main" description="Main Target" depends="prepare_statement, export_project, compress_project, finish_statement">
+		<echo msg="Enjoy your export file ;)" />
+	</target>
+	
+
+</project>

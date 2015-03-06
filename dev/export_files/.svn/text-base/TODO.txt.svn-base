@@ -1,0 +1,13 @@
+Cosas a mejorar:
+
+	- Poner en el properties el nombre del archivo a ser exportado.
+	- Agregar para que genere el changelog de los cambios por parametros.
+		* revision desde
+		* revision hasta
+	
+		* El nombre de el changelog seria changelog_2010_06_17.txt
+		* El changelog deberia ir dentro del zip.
+		
+		comando : svn log -vr 42:HEAD > releases/changelog.2010-06-17
+		
+	- Modificar el email para que agregue el bien estos datos.

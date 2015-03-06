@@ -1,0 +1,9 @@
+Version 1.2
+-------------------
+- Se posibilito que las subcategorias sean objetos.
+- Se cambio la logica de el plugin para dar este soporte.
+- Se corre un script que actualiza las subcategorias de anotaciones a objetos. (RETROCOMPATIBILIDAD)
+
+
+Version 1.1
+-------------------

@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 71
+.htaccess
+.komodotools
+Sparkfire.komodoproject
+sparkfile.komodoproject
+
+END

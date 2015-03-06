@@ -1,0 +1,19 @@
+Perfil del usuario:
+
+Recurso:  http://server/resources/?r=1877
+
+Los usuarios de la red seran de dos tipos:
+- Usuario normal.
+- Usuario anunciante.
+
+Los perfiles casi iguales, la diferencia es que el usuario anunciante tiene:
+
+- Un iconito a la izquierda de la foto.
+- Tiene un campo cuit (el cual se carga en el registro)
+
+Los widgets definir los widgets por defecto, y quitar el link de edicion de widgets, solo los admins los pueden ver.
+Edicion del perfil del usuario
+
+Recurso:  http://server/resources/?r=1880
+
+Se puede utilizar el mismo formulario de register exteps.

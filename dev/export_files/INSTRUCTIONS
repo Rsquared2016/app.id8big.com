@@ -1,0 +1,20 @@
+Ver la WIKI:
+
+	http://server/wiki/index.php/Exportar_un_proyecto_o_plugin_a_un_zip
+
+
+Explicacion anterior:
+	-Para poder usar phing y exportar el proyecto debes:
+	* Abrir el archivo build.properties y cambias los valores alli de #Proyect y #Svn.
+	* Acceder a la misma carpeta donde se encuentra el contenido.
+	* Ejecutar:
+	phing -f build.xml -Dsvn.user=yoursvnuser -Dsvn.pass=yourpassword
+	
+	phing -f dev/export_files/build.xml -Dsvn.user=diego -Dsvn.pass=qwepoi689 -Dsvn.folder= -Dproject.zip_name=elggbase
+	
+	* Ver en proyecto/releases
+
+Diego.
+
+====TODO====
+	Agregar SVN Ignore.

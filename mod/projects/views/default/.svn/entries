@@ -1,0 +1,67 @@
+10
+
+dir
+636
+svn://keetup.mine.nu/sites/sparkfire/tags/1.0.1/mod/projects/views/default
+svn://keetup.mine.nu/sites/sparkfire
+
+
+
+2014-02-19T22:39:38.995911Z
+618
+chespi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+be20cbc1-5fdc-45c9-8665-f69ec792f1bb
+
+input
+dir
+
+output
+dir
+
+plugins
+dir
+
+empty_sections
+dir
+
+forms
+dir
+
+object
+dir
+
+project
+dir
+
+widgets
+dir
+
+river
+dir
+
+project_discussion
+dir
+
+projects
+dir
+
+annotation
+dir
+
+group
+dir
+

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<project name="build" description="Export the elggbase" default="main" >
+		<property file="./build.properties" />
+
+		<target name="export_elggbase" description="Export and install the Project with the elggbase">
+			<svnexport
+		 	   svnpath="/usr/bin/svn"
+			   username="${svn.auth.user}"
+			   password="${svn.auth.pass}"
+			   repositoryurl="${svn.elggbase_path}"
+			   force="true"
+			   todir="./"
+			/>
+
+
+		</target>
+
+		<target name="configure_folders" description="Create the elggdata and clear the mod folder">
+			<!-- Clean the mods folder -->
+			<exec command="rm -rf ./mod/*" />
+
+			<!-- Include the elggdata -->
+			<exec command="mkdir ${mac.auth.user}/elggdata/${project.name}" />
+			<exec command="tar -zxvf ${mac.auth.user}/${project.name}/dev/data/elggbase.tar.gz -C ${mac.auth.user}/elggdata/${project.name}/" />
+			<exec command="mv ${mac.auth.user}/elggdata/${project.name}/elggbase/* ${mac.auth.user}/elggdata/${project.name}/" />
+			<exec command="rm -R ${mac.auth.user}/elggdata/${project.name}/elggbase/" />
+			<exec command="chmod -R 777 ${mac.auth.user}/elggdata/${project.name}/" />
+
+		</target>
+
+		<target name="export_mods" description="Exporting Modules">
+			<foreach list="${elgg.plugins.base}" param="plugin_name" target="download_elggbase_plugins" />
+			<foreach list="${elgg.plugins.thirdparty}" param="plugin_name" target="download_thirdparty_plugins" />
+			<foreach list="${elgg.plugins.keetup}" param="plugin_name" target="download_keetup_plugins" />
+		</target>
+
+		<target name="create_database" description="Create the new database and configure the datalists">
+			<!-- Drop and create the database, and configure this -->
+			<if>
+			 <equals arg1="${build.drop_database}" arg2="true" />
+			 	<then>
+			   		<exec command="/Applications/MAMP/bin/apache2/bin/mysqladmin -uelgguser -pelgguser --force drop ${project.name}" />
+				</then>
+			</if>
+
+			<exec command="/Applications/MAMP/bin/apache2/bin/mysqladmin -uelgguser -pelgguser create ${project.name}" />
+			<exec command="/Applications/MAMP/bin/apache2/bin/mysql -h localhost -u elgguser -pelgguser ${project.name} &lt; ./dev/db/db_with_users_and_content.sql" />
+			<exec command="${mac.auth.user}/${project.name}/dev/db/update_sql_data.sh ${project.name} ${mac.auth.user}/${project.name}/ ${mac.auth.user}/elggdata/${project.name}/ http://local/${project.name}/ elgg_ /Applications/MAMP/bin/apache2/bin/ localhost elgguser elgguser"/>
+		</target>
+
+		<!-- Download the mods, this targets are called from the foreach instances -->
+		<target name="download_elggbase_plugins" description="Downloading elggbase plugins">
+			<svnexport
+		 	   svnpath="/usr/bin/svn"
+			   username="${svn.auth.user}"
+			   password="${svn.auth.pass}"
+			   repositoryurl="${svn.plugins_path.base}/${plugin_name}"
+			   force="true"
+			   todir="./mod/${plugin_name}"
+			/>
+		</target>
+
+		<target name="download_thirdparty_plugins" description="Downloading thirdparty plugins">
+			<svnexport
+		 	   svnpath="/usr/bin/svn"
+			   username="${svn.auth.user}"
+			   password="${svn.auth.pass}"
+			   repositoryurl="${svn.plugins_path.thirdparty}/${plugin_name}"
+			   force="true"
+			   todir="./mod/${plugin_name}"
+			/>
+		</target>
+
+		<target name="download_keetup_plugins" description="Downloading keetup plugins">
+			<svnexport
+		 	   svnpath="/usr/bin/svn"
+			   username="${svn.auth.user}"
+			   password="${svn.auth.pass}"
+			   repositoryurl="${svn.plugins_path.keetup}/${plugin_name}"
+			   force="true"
+			   todir="./mod/${plugin_name}"
+			/>
+		</target>
+		<!-- END DOWNLOADING PLUGINS -->
+
+		<target name="download_keetup_theme" description="Downloading keetup theme">
+			<svnexport
+		 	   svnpath="/usr/bin/svn"
+			   username="${svn.auth.user}"
+			   password="${svn.auth.pass}"
+			   repositoryurl="${elgg.theme.repository}"
+			   force="true"
+			   todir="./mod/theme_professionalelgg"
+			/>
+		</target>
+
+		<target name="configure_site" description="Configure the settings and copy the htaccess">
+			<!-- Copy the settings php and replace all the strings -->
+			<copy file="./engine/settings.example.php" tofile="./engine/settings.php" overwrite="true">
+                <filterchain>
+                    <replacetokens begintoken="{{" endtoken="}}">
+                        <!-- MySQL TOKENS -->
+                        <token key="CONFIG_DBNAME" value="${project.name}" />
+                        <token key="CONFIG_DBHOST" value="" />
+                        <token key="CONFIG_DBPREFIX" value="elgg_" />
+                        <token key="CONFIG_DBUSER" value="elgguser" />
+                        <token key="CONFIG_DBPASS" value="elgguser" />
+                    </replacetokens>
+                </filterchain>
+            </copy>
+			
+			<!-- Copy the htaccess -->
+			<copy file="htaccess_dist" tofile=".htaccess" overwrite="false"/>
+
+		</target>
+
+		<target name="enable_modules" description="Enable the modules from the database">
+			<echo msg="Enable the modules ${elgg.plugins.base}" />
+			<exec command='curl -G "http://local/${project.name}/plugin_enabler.php?p=${elgg.plugins.base}"' />
+
+			<echo msg="Enable the modules ${elgg.plugins.keetup}" />
+			<exec command='curl -G "http://local/${project.name}/plugin_enabler.php?p=${elgg.plugins.keetup}"' />
+
+			<echo msg="Enable the modules ${elgg.plugins.thirdparty}" />
+			<exec command='curl -G "http://local/${project.name}/plugin_enabler.php?p=${elgg.plugins.thirdparty}"' />
+
+			<echo msg="Enable Keetup Theme" />
+			<exec command='curl -G "http://local/${project.name}/plugin_enabler.php?p=theme_professionalelgg"' />
+		</target>
+
+
+		<target name="kill_me" description="We just finish, just want to clean the phing files" >
+			<echo msg="We just finish, just want to clean the phing files" />
+			<exec command="rm build.xml build.properties plugin_enabler.php" />
+		</target>
+
+		<target name="main" description="Main Target" depends="export_elggbase,configure_folders,export_mods,download_keetup_theme	,create_database,configure_site,enable_modules,kill_me">
+			<echo msg="Enjoy your new project" />
+		</target>
+
+	</project>
